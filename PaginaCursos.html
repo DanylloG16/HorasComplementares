@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styleCursos.css">
+</head>
+<body>
+    <!-- Bbarra superior verde -->
+    <div class="bg-success text-light p-2 d-flex justify-content-between align-items-center">
+        <button class="btn btn-outline-light" id="menu-btn">
+            <img src="img/menu.png" alt="Ícone de Menu" class="menu-icon">
+        </button>
+        <h5 class="m-0" id="curso-titulo">Cursos</h5>
+        <div>
+            <button class="btn btn-outline-light" id="notification-btn">
+                <img src="img/notificação.png" alt="Ícone de Notificação" class="notification-icon">
+            </button>
+        </div>
+    </div>
+
+    <div class="d-flex">
+        <!-- Menu lateral -->
+        <nav id="sidebar" class="navbar-light vh-100 flex-column">
+            <div class="input-group mb-3 px-3">
+                <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="button-addon2">
+                <button class="btn btn-outline-dark" type="button" id="button-addon2">Go</button>
+            </div>
+            <ul class="nav flex-column px-3">
+                <li class="nav-item mb-2">
+                    <a class="nav-link text-dark d-flex justify-content-start align-items-center" href="paginaInicial.html">
+                        <img src="img/home.png" alt="Home Icon" class="sidebar-icon mr-2">
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a class="nav-link text-dark d-flex justify-content-start align-items-center" href="cursos.html">
+                        <img src="img/cursos.png" alt="Cursos Icon" class="sidebar-icon mr-2">
+                        <span>Cursos</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Conteúdo principal -->
+        <div id="main-container" class="container-fluid">
+            <section class="bg-light p-4 mt-3 rounded course-section">
+                <div class="row" id="course-container">
+                    <!-- Blocos de cursos -->
+                    <div class="col-md-4 col-lg-3 mb-4">
+                        <div class="course-card border rounded p-3 shadow-sm">
+                            <div class="course-content text-center">
+                              
+                                <p>Medicina</p>
+                                <button class="btn btn-primary" onclick="window.location.href='cursoMedicina.html'">Ver Detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-3 mb-4">
+                        <div class="course-card border rounded p-3 shadow-sm">
+                            <div class="course-content text-center">
+                               
+                                <p>Analise e Desenvolvimento de Sistemas</p>
+                                <button class="btn btn-primary" onclick="window.location.href='cursoAds.html'">Ver Detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mais cursos -->
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Script para controlar o menu lateral
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            var sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        });
+
+        // Script para a funcionalidade do botão de notificação
+        document.getElementById('notification-btn').addEventListener('click', function() {
+            alert("Você tem novas notificações!");
+        });
+
+        // Ajuste da altura do conteúdo principal conforme a barra superior
+        document.getElementById('main-container').style.paddingTop = '80px';
+    </script>
+</body>
+</html>

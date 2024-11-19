@@ -1,0 +1,144 @@
+/* Estilos para a página do gestor */
+
+/* Barra Superior */
+#gestor-titulo {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+/* Barra lateral */
+#sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #f8f9fa;
+    padding-top: 20px;
+    transition: transform 0.3s ease;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#sidebar.active {
+    transform: translateX(-250px);
+}
+
+.sidebar-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+/* Conteúdo Principal */
+#main-container {
+    margin-left: 250px;
+    transition: margin-left 0.3s ease;
+    padding: 20px;
+}
+
+#main-container.active {
+    margin-left: 0;
+}
+
+/* Seção de certificados */
+.list-group-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: background-color 0.2s ease;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+.list-group-item .d-flex {
+    margin-bottom: 10px;
+}
+
+.list-group-item .d-flex span {
+    font-size: 1rem;
+}
+
+.list-group-item .btn-link {
+    font-size: 1rem;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.list-group-item .btn-link:hover {
+    text-decoration: underline;
+}
+
+.list-group-item .text-muted {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+/* Barra superior verde */
+.bg-success {
+    background-color: #28a745 !important;
+}
+
+.notification-icon,
+.menu-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Estilos do botão do menu lateral */
+#menu-btn {
+    border: none;
+    background-color: transparent;
+}
+
+/* Input de pesquisa */
+.input-group {
+    width: 100%;
+}
+
+.input-group input {
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+}
+
+.input-group button {
+    background-color: #f1f1f1;
+    border-radius: 0.25rem;
+    border: none;
+    padding: 0.5rem 1rem;
+}
+
+/* Estilo para a navegação */
+.nav-item a {
+    color: #333;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.nav-item a:hover {
+    background-color: #f8f9fa;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #333;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #sidebar {
+        width: 200px;
+    }
+
+    #main-container {
+        margin-left: 0;
+    }
+
+    #sidebar.active {
+        transform: translateX(-200px);
+    }
+}

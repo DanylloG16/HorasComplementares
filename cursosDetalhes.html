@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Curso</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styleCursoDetalhes.css">
+</head>
+<body>
+    <!-- Barra superior verde -->
+    <div class="bg-success text-light p-2 d-flex justify-content-between align-items-center">
+        <button class="btn btn-outline-light" id="menu-btn">
+            <img src="img/menu.png" alt="Ícone de Menu" class="menu-icon">
+        </button>
+        <h5 class="m-0" id="curso-titulo">Detalhes do Curso</h5>
+        <div>
+            <button class="btn btn-outline-light" id="notification-btn">
+                <img src="img/notificação.png" alt="Ícone de Notificação" class="notification-icon">
+            </button>
+        </div>
+    </div>
+
+    <div class="d-flex">
+        <!-- Menu lateral -->
+        <nav id="sidebar" class="navbar-light vh-100 flex-column">
+            <div class="input-group mb-3 px-3">
+                <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="button-addon2">
+                <button class="btn btn-outline-dark" type="button" id="button-addon2">Go</button>
+            </div>
+            <ul class="nav flex-column px-3">
+                <li class="nav-item mb-2">
+                    <a class="nav-link text-dark d-flex justify-content-start align-items-center" href="paginaInicial.html">
+                        <img src="img/home.png" alt="Home Icon" class="sidebar-icon mr-2">
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a class="nav-link text-dark d-flex justify-content-start align-items-center" href="cursos.html">
+                        <img src="img/cursos.png" alt="Cursos Icon" class="sidebar-icon mr-2">
+                        <span>Cursos</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Conteúdo principal -->
+        <div id="main-container" class="container-fluid">
+            <section class="intro-section">
+                <h2>Bem-vindo ao Detalhe do Curso</h2>
+                <p id="descricao-curso">Informações sobre o curso selecionado...</p>
+            </section>
+
+            <div class="divider"></div>
+
+            <section class="details-section">
+                <h4>Descrição Detalhada do Curso</h4>
+                <p id="descricao-detalhada">
+                    A descrição detalhada do curso será inserida aqui dependendo do curso selecionado.
+                </p>
+            </section>
+
+            <section class="upload-section">
+                <h4>Envie um Arquivo</h4>
+                <form id="upload-form">
+                    <div class="mb-3">
+                        <label for="fileUpload" class="form-label">Selecione o arquivo:</label>
+                        <input type="file" class="form-control" id="fileUpload" name="fileUpload">
+                    </div>
+                    <div class="mb-3">
+                        <label for="comentario" class="form-label">Comentário:</label>
+                        <textarea class="form-control" id="comentario" name="comentario" rows="3" placeholder="Escreva um comentário sobre o arquivo enviado..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Pega o parâmetro da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const courseId = urlParams.get('id');
+
+        // Exemplo de como atualizar o conteúdo com base no id do curso
+        const descricaoCurso = document.getElementById("descricao-curso");
+        const descricaoDetalhada = document.getElementById("descricao-detalhada");
+
+        if (courseId == 1) {
+            descricaoCurso.textContent = 'Curso de Medicina';
+            descricaoDetalhada.textContent = 'Este curso oferece uma visão abrangente da medicina, com foco em...';
+        } else if (courseId == 2) {
+            descricaoCurso.textContent = 'Curso de Enfermagem';
+            descricaoDetalhada.textContent = 'O curso de enfermagem prepara os alunos para o cuidado de pacientes...';
+        } else if (courseId == 3) {
+            descricaoCurso.textContent = 'Curso de Análise e Desenvolvimento de Sistemas';
+            descricaoDetalhada.textContent = 'Este curso aborda as melhores práticas de desenvolvimento de software...';
+        }
+
+        // Código para abrir/fechar o menu lateral
+        const menuButton = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const mainContainer = document.getElementById('main-container');
+
+        menuButton.addEventListener('click', function() {
+            sidebar.classList.toggle('active');
+            mainContainer.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

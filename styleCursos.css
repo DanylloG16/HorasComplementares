@@ -1,0 +1,134 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* Barra superior verde */
+.bg-success {
+    height: 80px; /* Altura da barra superior */
+    position: fixed; /* Mantém a barra superior fixa no topo */
+    width: 100%; /* Largura total */
+    top: 0; /* Fixa no topo */
+    left: 0; /* Largura total */
+    z-index: 1000; /* A frente de outros elementos */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombreamento */
+}
+
+/* Ajuste para o conteúdo abaixo da barra superior */
+#main-container {
+    padding-top: 80px; /* Espaçamento igual à altura da barra superior */
+    transition: margin-left 0.3s; /* Suaviza a transição ao abrir o menu */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombreamento */
+}
+
+/* Menu lateral */
+#sidebar {
+    width: 250px; /* Largura da barra lateral */
+    top: 80px; /* Abaixo da barra superior */
+    left: -250px; /* Inicialmente oculto */
+    position: fixed; /* Fixa a barra lateral */
+    transition: left 0.3s; /* Suaviza a transição ao abrir o menu */
+    height: calc(100vh - 80px); /* Altura total menos a altura da barra superior */
+    z-index: 999; /* A frente de outros elementos */
+    background-color: white; /* Cor de fundo */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombreamento */
+}
+
+/* Menu lateral visível quando 'active' é adicionado */
+#sidebar.active {
+    left: 0; /* Exibe o menu lateral ao ativar */
+}
+
+/* Ajuste para a posição dos ícones no menu lateral */
+.nav-item {
+    display: flex; /* Alinha itens horizontalmente */
+    align-items: center; /* Alinha verticalmente */
+}
+
+.nav-item img {
+    height: 24px; /* Tamanho do ícone */
+    margin-right: 10px; /* Espaçamento entre o ícone e o texto */
+}
+
+/* Ajuste para os links da barra lateral */
+.nav-link {
+    transition: background-color 0.3s, transform 0.1s; /* Suave transição */
+    width: 100%; /* Para que o efeito de pressionar vá até a borda */
+    padding: 10px 15px; /* Preenchimento para melhor aparência */
+    min-height: 50px; /* Altura mínima */
+}
+
+.nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Cor de fundo mais escura */
+    transform: translateY(2px); /* Efeito de pressionar */
+}
+
+/* Estilos para os botões da barra superior */
+.bg-success .btn {
+    border: none; /* Remove a borda */
+    min-width: 50px; /* Largura mínima */
+    min-height: 50px; /* Altura mínima */
+    padding: 0; /* Remove o preenchimento interno */
+}
+
+/* Estilo para ícones de menu e notificação */
+.menu-icon,
+.notification-icon {
+    width: 24px; /* Tamanho do ícone */
+    height: 24px; /* Tamanho do ícone */
+}
+
+/* Estilos para a seção de cursos */
+.course-section {
+    min-height: 100vh; /* Altura mínima da seção */
+    padding: 20px;
+}
+
+/* Cards de cursos */
+.course-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    height: 250px; /* Ajuste a altura para o card */
+    display: flex;
+    flex-direction: column; /* Alinha os elementos verticalmente */
+    justify-content: space-between;
+    text-align: center;
+    padding: 10px;
+}
+
+.course-card:hover {
+    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombras mais intensas */
+}
+
+.course-content {
+    font-weight: bold;
+    color: #333;
+    font-size: 18px;
+}
+
+/* Imagem do curso */
+.course-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover; /* Cobre a área sem distorcer a imagem */
+    border-radius: 5px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    /* Barra lateral em telas pequenas */
+    #sidebar {
+        width: 100
+
+
+    }
+
+}

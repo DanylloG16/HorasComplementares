@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor - Certificados Recebidos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styleGestor.css">
+</head>
+<body>
+    <!-- Barra superior verde -->
+    <div class="bg-success text-light p-2 d-flex justify-content-between align-items-center">
+        <button class="btn btn-outline-light" id="menu-btn">
+            <img src="img/menu.png" alt="Ícone de Menu" class="menu-icon">
+        </button>
+        <h5 class="m-0" id="gestor-titulo">Gestor - Certificados</h5>
+        <div>
+            <button class="btn btn-outline-light" id="notification-btn">
+                <img src="img/notificação.png" alt="Ícone de Notificação" class="notification-icon">
+            </button>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Certificados Recebidos</h1>
+        <div id="certificados-lista" class="row mt-4">
+            <!-- Certificados serão exibidos aqui -->
+        </div>
+    </div>
+
+    <!-- Modal para Exibir a Imagem do Certificado -->
+    <div class="modal fade" id="imagemModal" tabindex="-1" aria-labelledby="imagemModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imagemModalLabel">Imagem do Certificado</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="imagem-certificado" src="" alt="Imagem do Certificado" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Recupera os certificados do localStorage
+            const certificados = JSON.parse(localStorage.getItem('certificados')) || [];
+            const lista = document.getElementById('certificados-lista');
+
+            if (certificados.length === 0) {
+                lista.innerHTML = '<p class="text-center text-muted">Nenhum certificado enviado ainda.</p>';
+                return;
+            }
+
+            // Gera os itens dinamicamente
+            certificados.forEach((cert, index) => {
+                const card = document.createElement('div');
+                card.className = 'col-md-4 mb-4';
+                card.innerHTML = `
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">${cert.nome}</h5>
+                            <p class="card-text"><strong>Matrícula:</strong> ${cert.matricula}</p>
+                            <p class="card-text"><strong>Comentário:</strong> ${cert.comentario || 'Nenhum comentário'}</p>
+                            ${
+                                cert.file
+                                    ? `<div class="mb-3"><button class="btn btn-info w-100" onclick="verImagem('${cert.file}')">Ver Imagem</button></div>`
+                                    : `<p class="text-danger">Imagem do certificado não disponível.</p>`
+                            }
+                            <button class="btn btn-danger w-100" onclick="excluirCertificado(${index})">Excluir</button>
+                        </div>
+                    </div>
+                `;
+                lista.appendChild(card);
+            });
+        });
+
+        // Função para abrir a imagem na modal
+        function verImagem(imagemUrl) {
+            const modal = new bootstrap.Modal(document.getElementById('imagemModal'));
+            const imagemElement = document.getElementById('imagem-certificado');
+            imagemElement.src = imagemUrl;  // Atualiza o src da imagem na modal
+            modal.show();  // Exibe a modal
+        }
+
+        // Função para excluir um certificado específico
+        function excluirCertificado(index) {
+            // Recupera os certificados existentes
+            const certificados = JSON.parse(localStorage.getItem('certificados')) || [];
+            // Remove o certificado pelo índice
+            certificados.splice(index, 1);
+            // Atualiza o localStorage
+            localStorage.setItem('certificados', JSON.stringify(certificados));
+            // Recarrega a página para refletir as mudanças
+            location.reload();
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
