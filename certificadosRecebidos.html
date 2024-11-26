@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +8,8 @@
     <link rel="stylesheet" href="styleGestor.css">
 </head>
 <body>
-    <!-- Barra superior verde -->
-    <div class="bg-success text-light p-2 d-flex justify-content-between align-items-center">
-        <button class="btn btn-outline-light" id="menu-btn">
-            <img src="img/menu.png" alt="Ícone de Menu" class="menu-icon">
-        </button>
+    <!-- Barra superior roxa -->
+    <div class="bg-purple text-light p-3 d-flex justify-content-between align-items-center shadow-lg">
         <h5 class="m-0" id="gestor-titulo">Gestor - Certificados</h5>
         <div>
             <button class="btn btn-outline-light" id="notification-btn">
@@ -21,9 +18,10 @@
         </div>
     </div>
 
-    <div class="container mt-5">
-        <h1 class="text-center">Certificados Recebidos</h1>
-        <div id="certificados-lista" class="row mt-4">
+    <div class="container mt-5 pt-5">
+        <h1 class="text-center mb-4">Certificados Recebidos</h1>
+        <hr class="linha-titulo">
+        <div id="certificados-lista" class="row gy-4">
             <!-- Certificados serão exibidos aqui -->
         </div>
     </div>
@@ -59,17 +57,21 @@
                 const card = document.createElement('div');
                 card.className = 'col-md-4 mb-4';
                 card.innerHTML = `
-                    <div class="card shadow-sm">
+                    <div class="card shadow-sm rounded-3">
                         <div class="card-body">
-                            <h5 class="card-title">${cert.nome}</h5>
+                            <h5 class="card-title text-primary">${cert.nome}</h5>
                             <p class="card-text"><strong>Matrícula:</strong> ${cert.matricula}</p>
                             <p class="card-text"><strong>Comentário:</strong> ${cert.comentario || 'Nenhum comentário'}</p>
-                            ${
-                                cert.file
-                                    ? `<div class="mb-3"><button class="btn btn-info w-100" onclick="verImagem('${cert.file}')">Ver Imagem</button></div>`
-                                    : `<p class="text-danger">Imagem do certificado não disponível.</p>`
-                            }
-                            <button class="btn btn-danger w-100" onclick="excluirCertificado(${index})">Excluir</button>
+                            <div class="d-flex justify-content-between align-items-center">
+                                ${
+                                    cert.file
+                                        ? `<button class="btn btn-outline-primary" onclick="verImagem('${cert.file}')">Ver Imagem</button>`
+                                        : `<p class="text-danger mb-0">Imagem não disponível</p>`
+                                }
+                                <button class="btn btn-outline-danger" onclick="excluirCertificado(${index})">
+                                    <i class="bi bi-trash"></i> Excluir
+                                </button>
+                            </div>
                         </div>
                     </div>
                 `;
@@ -99,5 +101,6 @@
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
 </body>
 </html>

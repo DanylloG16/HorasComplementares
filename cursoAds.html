@@ -8,67 +8,40 @@
     <link rel="stylesheet" href="styleCursoDetalhes.css">
 </head>
 <body>
-    <!-- Barra superior verde -->
-    <div class="bg-success text-light p-2 d-flex justify-content-between align-items-center">
-        <button class="btn btn-outline-light" id="menu-btn">
-            <img src="img/menu.png" alt="Ícone de Menu" class="menu-icon">
-        </button>
-        <h5 class="m-0" id="curso-titulo">Análise e Desenvolvimento de Sistemas</h5>
-        <button class="btn btn-outline-light" id="notification-btn">
-            <img src="img/notificação.png" alt="Ícone de Notificação" class="notification-icon">
-        </button>
+    <!-- Barra superior -->
+    <div class="bg-purple text-light p-3 d-flex justify-content-between align-items-center fixed-top w-100">
+        <h5 class="m-0 text-center flex-grow-1" id="curso-titulo">Análise e Desenvolvimento de Sistemas</h5>
     </div>
 
-    <div class="d-flex">
-        <!-- Menu lateral -->
-        <nav id="sidebar" class="navbar-light vh-100 flex-column">
-            <div class="input-group mb-3 px-3">
-                <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar">
-                <button class="btn btn-outline-dark" type="button">Go</button>
+    <!-- Conteúdo principal -->
+    <div class="container mt-5 pt-5">
+        <!-- Introdução -->
+        <section class="intro-section mb-4 p-4 rounded shadow-sm">
+            <h2>Bem-vindo ao Curso de Análise e Desenvolvimento de Sistemas</h2>
+            <p>No curso de Análise e Desenvolvimento de Sistemas, as horas complementares são fundamentais para o desenvolvimento profissional. São necessárias 340 horas, distribuídas em diferentes categorias. Confira os detalhes abaixo:</p>
+        </section>
+
+        <!-- Tipos de Horas -->
+        <section class="tipos-de-horas mb-4 p-4 rounded shadow-sm">
+            <h3>Tipos de Horas</h3>
+            <div class="d-flex flex-wrap justify-content-between">
+                <button class="btn btn-outline-primary m-2" onclick="showCategory('ensino')">Atividades de Ensino</button>
+                <button class="btn btn-outline-primary m-2" onclick="showCategory('pesquisa')">Atividades de Pesquisa</button>
+                <button class="btn btn-outline-primary m-2" onclick="showCategory('extensao')">Atividades de Extensão</button>
+                <button class="btn btn-outline-primary m-2" onclick="showCategory('programacao')">Programação e Desenvolvimento</button>
+                <button class="btn btn-outline-primary m-2" onclick="showCategory('tecnologia')">Tecnologia e Inovação</button>
             </div>
-            <ul class="nav flex-column px-3">
-                <li class="nav-item mb-2">
-                    <a class="nav-link text-dark d-flex align-items-center" href="PaginaInicial.html">
-                        <img src="img/home.png" alt="Home Icon" class="sidebar-icon">
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li class="nav-item mb-2">
-                    <a class="nav-link text-dark d-flex align-items-center" href="PaginaCursos.html">
-                        <img src="img/cursos.png" alt="Cursos Icon" class="sidebar-icon">
-                        <span>Cursos</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
-        <!-- Conteúdo principal -->
-        <div id="main-container" class="container-fluid">
-            <!-- Introdução -->
-            <section class="intro-section p-4">
-                <h2>Bem-vindo ao Curso de Análise e Desenvolvimento de Sistemas</h2>
-                <p>No curso de Análise e Desenvolvimento de Sistemas, as horas complementares proporcionam experiências fora da sala de aula. São necessárias 340 horas, distribuídas em diferentes categorias. Confira os detalhes abaixo:</p>
-            </section>
-
-            <div class="divider"></div>
-
-            <!-- Botões de categorias -->
-            <section class="buttons-section text-center my-4">
-                <button class="btn btn-primary mx-2" onclick="showCategory('ensino')">Atividades de Ensino</button>
-                <button class="btn btn-primary mx-2" onclick="showCategory('pesquisa')">Atividades de Pesquisa</button>
-                <button class="btn btn-primary mx-2" onclick="showCategory('extensao')">Atividades de Extensão</button>
-                <button class="btn btn-primary mx-2" onclick="showCategory('arte')">Esporte, Arte e Cultura</button>
-                <button class="btn btn-primary mx-2" onclick="showCategory('cidadania')">Cidadania e Sustentabilidade</button>
-            </section>
 
             <!-- Conteúdo dinâmico -->
-            <section id="category-content" class="content-section p-4">
+            <div id="category-content" class="mt-3">
                 <h4 class="text-center text-secondary">Selecione uma categoria para ver mais detalhes</h4>
-            </section>
+            </div>
+        </section>
 
-          <!-- Conteúdo dinâmico -->
-          <div class="container mt-5">
+        <div class="divider mb-4"></div>
+
+        <!-- Envio de Certificados -->
+        <section class="upload-section p-4 rounded shadow-sm">
             <h1 class="text-center">Envio de Certificados</h1>
             <form id="upload-form" onsubmit="handleFormSubmit(event)" class="mt-4">
                 <div class="mb-3">
@@ -87,79 +60,69 @@
                     <label for="fileUpload" class="form-label">Certificado:</label>
                     <input type="file" class="form-control" id="fileUpload" required>
                 </div>
-                <button type="submit" class="btn btn-success btn-lg w-100">Enviar</button>
+                <button type="submit" class="btn btn-custom btn-lg w-100">Enviar</button>
             </form>
-        </div>
-        <script>
-            function handleFormSubmit(event) {
-                event.preventDefault(); // Impede o envio padrão do formulário
-    
-                // Coleta os dados do formulário
-                const nome = document.getElementById('nome').value;
-                const matricula = document.getElementById('matricula').value;
-                const comentario = document.getElementById('comentario').value;
-                const file = document.getElementById('fileUpload').files[0].name;
-    
-                // Cria um objeto com os dados
-                const certificado = { nome, matricula, comentario, file };
-    
-                // Recupera os certificados existentes no localStorage ou inicializa
-                const certificados = JSON.parse(localStorage.getItem('certificados')) || [];
-                certificados.push(certificado); // Adiciona o novo certificado
-    
-                // Salva novamente no localStorage
-                localStorage.setItem('certificados', JSON.stringify(certificados));
-    
-                // Redireciona para a página do gestor
-                window.location.href = 'paginaGestor.html';
-            }
-        </script>
-
+        </section>
+    </div>
 
     <script>
-        // Lógica do menu lateral
-        const menuButton = document.getElementById('menu-btn');
-        const sidebar = document.getElementById('sidebar');
-        const mainContainer = document.getElementById('main-container');
-
-        menuButton.addEventListener('click', function() {
-            sidebar.classList.toggle('active');
-            mainContainer.classList.toggle('active');
-        });
-
-        // Lógica do conteúdo dinâmico
-        const categoryContent = document.getElementById('category-content');
-
+        // Dados das categorias
         const categories = {
             ensino: `
                 <h4>Atividades de Ensino</h4>
                 <p><strong>Máximo:</strong> 90 horas</p>
-                <p><strong>Documentação:</strong> Certificados de participação em atividades de ensino, como palestras, cursos extracurriculares e workshops.</p>
+                <p><strong>Documentação:</strong> Certificados de participação em palestras, cursos de aprimoramento e workshops relacionados à área de TI e sistemas.</p>
             `,
             pesquisa: `
                 <h4>Atividades de Pesquisa</h4>
-                <p><strong>Máximo:</strong> 20 horas</p>
-                <p><strong>Documentação:</strong> Comprovação de participação em projetos de pesquisa ou desenvolvimento de trabalhos científicos.</p>
+                <p><strong>Máximo:</strong> 30 horas</p>
+                <p><strong>Documentação:</strong> Participação em projetos de pesquisa, desenvolvimento de protótipos ou pesquisas acadêmicas voltadas para a área de desenvolvimento de sistemas.</p>
             `,
             extensao: `
                 <h4>Atividades de Extensão</h4>
-                <p><strong>Máximo:</strong> 10 horas</p>
-                <p><strong>Documentação:</strong> Registros de envolvimento em atividades de extensão universitária, como estágios, eventos ou iniciativas comunitárias.</p>
+                <p><strong>Máximo:</strong> 50 horas</p>
+                <p><strong>Documentação:</strong> Certificados de participação em eventos, hackathons, cursos extracurriculares ou estágios na área de desenvolvimento de software.</p>
             `,
-            arte: `
-                <h4>Esporte, Arte e Cultura</h4>
-                <p><strong>Máximo:</strong> 20 horas</p>
-                <p><strong>Documentação:</strong> Certificados de participação em eventos culturais, esportivos ou artísticos promovidos pela instituição ou fora dela.</p>
+            programacao: `
+                <h4>Programação e Desenvolvimento</h4>
+                <p><strong>Máximo:</strong> 60 horas</p>
+                <p><strong>Documentação:</strong> Participação em maratonas de programação, desenvolvimento de software ou contribuições para projetos open-source.</p>
             `,
-            cidadania: `
-                <h4>Cidadania e Sustentabilidade</h4>
-                <p><strong>Máximo:</strong> 100 horas</p>
-                <p><strong>Documentação:</strong> Comprovantes de participação em projetos voltados para a cidadania, sustentabilidade ambiental ou atividades empreendedoras.</p>
+            tecnologia: `
+                <h4>Tecnologia e Inovação</h4>
+                <p><strong>Máximo:</strong> 80 horas</p>
+                <p><strong>Documentação:</strong> Certificados de participação em conferências, cursos e workshops voltados para novas tecnologias, como Inteligência Artificial, Cloud Computing e Big Data.</p>
             `
         };
 
+        // Função para exibir o conteúdo do tipo clicado
         function showCategory(category) {
+            const categoryContent = document.getElementById('category-content');
             categoryContent.innerHTML = categories[category];
+        }
+
+        // Função de envio do formulário
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+    
+            // Coleta os dados do formulário
+            const nome = document.getElementById('nome').value;
+            const matricula = document.getElementById('matricula').value;
+            const comentario = document.getElementById('comentario').value;
+            const file = document.getElementById('fileUpload').files[0].name;
+    
+            // Cria um objeto com os dados
+            const certificado = { nome, matricula, comentario, file };
+    
+            // Recupera os certificados existentes no localStorage ou inicializa
+            const certificados = JSON.parse(localStorage.getItem('certificados')) || [];
+            certificados.push(certificado); // Adiciona o novo certificado
+    
+            // Salva novamente no localStorage
+            localStorage.setItem('certificados', JSON.stringify(certificados));
+    
+            // Redireciona para a página do gestor
+            window.location.href = 'cursoAds.html';
         }
     </script>
 </body>

@@ -1,115 +1,115 @@
 /* Estilos gerais */
 body {
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+    background-color: #f8f9fa; /* Fundo claro para o corpo */
 }
 
-/* Barra superior verde */
-.bg-success {
-    height: 80px; /* Altura da barra superior */
-    position: fixed; /* Mantém a barra superior fixa no topo */
-    width: 100%; /* Largura total */
-    top: 0; /* Fixa no topo */
-    left: 0; /* Largura total */
-    z-index: 1000; /* A frente de outros elementos */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombreamento */
+/* Fundo roxo */
+.bg-purple {
+    background-color: #6a1b9a;
+    min-height: 60vh; /* Garantindo que o bloco roxo tenha altura mínima */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-/* Espaçamento para o conteúdo abaixo da barra superior */
-#main-container {
-    padding-top: 80px; /* Espaçamento igual à altura da barra superior */
-    transition: margin-left 0.3s; /* Suaviza a transição ao abrir o menu */
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombreamento */
+/* Barra superior fixa */
+.navbar {
+    width: 100%;
+    height: 90px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Menu lateral com fundo branco */
-#sidebar {
-    width: 250px; /* Largura da barra lateral */
-    top: 80px; /* Abaixo da barra superior */
-    left: -250px; /* Oculto inicialmente */
-    position: fixed; /* Fixa a barra lateral */
-    transition: left 0.3s; /* Suaviza a transição ao abrir o menu */
-    height: calc(100vh - 80px); /* Altura total menos a altura da barra superior */
-    z-index: 999; /* A frente de outros elementos */
-    background-color: white; /* Cor de fundo da barra lateral */
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombreamento */
+.navbar h5 {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    color: #007bff;
 }
 
-/* Ajuste para a posição dos ícones no menu */
-.nav-item {
-    display: flex; /* Usa flexbox para alinhar itens */
-    align-items: center; /* Alinha verticalmente os itens */
+.icon {
+    width: 28px;
+    height: 28px;
 }
 
-.nav-item img {
-    height: 24px; /* Tamanho do ícone */
-    margin-right: 10px; /* Espaçamento à direita do ícone */
-    margin-left: 5px; /* Ajuste conforme necessário */
+/* Botões com efeito */
+.button-effect {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    padding: 8px 20px;
+    border-radius: 5px;
 }
 
-/* Ajuste para os links da barra lateral */
-.nav-link {
-    transition: background-color 0.3s, transform 0.1s; /* Suave transição */
-    width: 100%; /* Para que o efeito de pressionar vá até a borda */
-    padding: 10px 15px; /* Adicionando preenchimento para melhor aparência */
-    min-height: 50px; /* Altura mínima para os links */
+.button-effect:hover {
+    transform: translateY(3px); /* Efeito de afundar mais suave */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
-.nav-link:hover {
-    background-color: rgba(0, 0, 0, 0.1); /* Cor de fundo mais escura */
-    transform: translateY(2px); /* Efeito de pressionar para baixo */
+/* Carrossel de cursos flutuante */
+.course-carousel-container {
+    z-index: 10;
+    width: 90%; /* Ajuste para ocupar maior parte da tela */
+    margin-top: 60px; /* Ajuste para descer o carrossel mais */
+    margin-bottom: 100px; /* Espaço para a barra inferior */
+    position: relative;
 }
 
-/* Estilos para os botões da barra superior */
-.bg-success .btn {
-    border: none; /* Remove a borda */
-    min-width: 50px; /* Largura mínima */
-    min-height: 50px; /* Altura mínima */
-    padding: 0; /* Remove o preenchimento interno para evitar aumento de tamanho */
+.carousel-inner {
+    border-radius: 16px;
 }
 
-.bg-success .btn:hover {
-    background-color: white; /* Fundo branco ao passar o mouse */
-    color: black; /* Cor do texto ao passar o mouse */
+.course-card {
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 300px;
 }
 
-/* Estilo para ícones de menu e notificação */
-.menu-icon,
-.notification-icon {
-    width: 24px; /* Tamanho do ícone */
-    height: 24px; /* Tamanho do ícone */
+.course-card:hover {
+    transform: translateY(-12px); /* Efeito de flutuar */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* Adicionando bordas arredondadas e sombreamento às seções */
-section {
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombreamento */
+/* Estilo das setas do carrossel */
+.carousel-control-prev-icon, 
+.carousel-control-next-icon {
+    background-color: #6a1b9a; /* Cor roxa para as setas */
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease; /* Adicionando animação */
 }
 
-/* Para a primeira imagem (Seção Superior) */
-section.bg-light {
-    background-color: #f8f9fa; /* Cor de fundo mais suave */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombras adicionais para as seções */
-}
-
-/* Para a segunda imagem (Seção Inferior) */
-section.bg-warning {
-    background-color: #ffeeba; /* Cor de fundo mais suave */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombras adicionais para as seções */
+.carousel-control-prev-icon:hover, 
+.carousel-control-next-icon:hover {
+    transform: scale(1.2); /* Aumenta um pouco o tamanho da seta */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-    #sidebar {
-        width: 100%; /* Largura total em telas pequenas */
-        left: -100%; /* Oculto fora da tela em telas menores */
+    .carousel-inner {
+        flex-direction: column;
     }
 
-    #main-container {
-        margin-left: 0; /* Sem margem em telas pequenas */
+    .course-card {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .navbar {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bg-purple h1 {
+        font-size: 2rem;
+    }
+
+    .course-card {
+        width: 100%;
     }
 }

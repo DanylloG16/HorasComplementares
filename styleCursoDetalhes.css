@@ -1,5 +1,14 @@
-/* Barra superior verde */
-.bg-success {
+/* Estilos gerais */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7fb;
+    margin: 0;
+    padding: 0;
+}
+
+/* Barra superior com fundo roxo */
+.bg-purple {
+    background-color: #6a1b9a;
     height: 80px;
     position: fixed;
     width: 100%;
@@ -7,55 +16,52 @@
     left: 0;
     z-index: 1050;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#main-container {
+/* Título Medicina com fonte melhorada */
+h5 {
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+    color: #fff;
+    font-size: 1.8rem;
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Conteúdo principal */
+.container {
+    margin-top: 120px;
     padding-top: 100px;
-    transition: margin-left 0.3s ease;
-    margin-left: 0;
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    min-height: 100vh;
 }
 
-/* Menu lateral */
-#sidebar {
-    width: 250px;
-    height: 100vh;
-    background-color: #f8f9fa;
-    position: fixed;
-    left: -250px;
-    top: 80px;
-    transition: left 0.3s ease;
-    z-index: 1040;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
-#sidebar.active {
-    left: 0;
-}
-
-#main-container.active {
-    margin-left: 250px;
-}
-
-/* Ícones */
-.menu-icon, .notification-icon, .sidebar-icon {
-    width: 24px; /* Ajuste o tamanho conforme necessário */
-    height: 24px; /* Ajuste o tamanho conforme necessário */
-} 
-/* Botões de categorias */
-.buttons-section .btn {
-    width: auto;
-    padding: 10px 20px;
-    font-size: 1rem;
-}
-
-/* Seção dinâmica */
-.content-section {
-    background-color: #ffffff;
+/* Seções */
+.intro-section, .upload-section, .tipos-de-horas {
+    background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-top: 20px;
+}
+
+/* Botão Enviar */
+.btn-custom {
+    background-color: #fff;
+    color: #6a1b9a;
+    border: 2px solid #6a1b9a;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.btn-custom:hover {
+    background-color: #6a1b9a;
+    color: #fff;
+}
+
+/* Para colunas responsivas */
+@media (max-width: 768px) {
+    .d-flex {
+        flex-direction: column;
+    }
 }

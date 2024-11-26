@@ -1,87 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página EAD</title>
+    <title>Página EAD - GHC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="stylePaginaInicial.css">
 </head>
-<body>
-    <!-- Barra superior verde -->
-    <div class="bg-success text-light p-2 d-flex justify-content-between align-items-center">
-        <button class="btn btn-outline-light" id="menu-btn">
-            <img src="img/menu.png" alt="Ícone de Menu" class="menu-icon">
+
+<body class="bg-light">
+    <!-- Barra superior fixa -->
+    <div class="navbar bg-white shadow-lg fixed-top d-flex justify-content-between align-items-center p-3">
+        <button class="btn btn-outline-primary button-effect" id="menu-btn">
+            <img src="img/menu.png" alt="Ícone de Menu" class="icon">
         </button>
-        <h5 class="m-0"></h5>
-        <div>
-            <button class="btn btn-outline-light" id="notification-btn">
-                <img src="img/notificação.png" alt="Ícone de Notificação" class="notification-icon">
+        <h5 class="m-0 text-uppercase font-weight-bold text-primary">GHC</h5>
+        <button class="btn btn-outline-primary button-effect" id="notification-btn">
+            <img src="img/notificação.png" alt="Ícone de Notificação" class="icon">
+        </button>
+    </div>
+
+    <!-- Bloco roxo de fundo -->
+    <div class="bg-purple d-flex flex-column justify-content-center align-items-center text-white" style="min-height: 60vh;">
+        <h1 class="display-4 font-weight-bold">Gestor de Horas Complementares</h1>
+        <p class="lead">Gerencie e visualize as horas complementares dos cursos de forma prática e eficiente.</p>
+    </div>
+
+    <!-- Carrossel de cursos flutuante -->
+    <div class="course-carousel-container mx-auto position-relative" style="z-index: 10;">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="d-flex justify-content-center">
+                        <!-- Curso 1 -->
+                        <div class="course-card bg-white text-center shadow-lg p-4 rounded-lg mx-3">
+                            <h5 class="text-primary font-weight-bold">Medicina</h5>
+                            <p class="text-muted mb-3">Curso de Medicina com ênfase na prática clínica.</p>
+                            <button class="btn btn-primary button-effect" onclick="window.location.href='cursoMedicina.html'">Ver Detalhes</button>
+                        </div>
+                        <!-- Curso 2 -->
+                        <div class="course-card bg-white text-center shadow-lg p-4 rounded-lg mx-3">
+                            <h5 class="text-primary font-weight-bold">Direito</h5>
+                            <p class="text-muted mb-3">Curso completo de Direito com foco em jurisprudência.</p>
+                            <button class="btn btn-primary button-effect" onclick="window.location.href='cursoDireito.html'">Ver Detalhes</button>
+                        </div>
+                        <!-- Curso 3 -->
+                        <div class="course-card bg-white text-center shadow-lg p-4 rounded-lg mx-3">
+                            <h5 class="text-primary font-weight-bold">ADS</h5>
+                            <p class="text-muted mb-3">Curso de Análise e Desenvolvimento de Sistemas.</p>
+                            <button class="btn btn-primary button-effect" onclick="window.location.href='cursoAds.html'">Ver Detalhes</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="d-flex justify-content-center">
+                        <!-- Curso 4 -->
+                        <div class="course-card bg-white text-center shadow-lg p-4 rounded-lg mx-3">
+                            <h5 class="text-primary font-weight-bold">Enfermagem</h5>
+                            <p class="text-muted mb-3">Curso de Enfermagem com técnicas práticas.</p>
+                            <button class="btn btn-primary button-effect" onclick="window.location.href='cursoEnfermagem.html'">Ver Detalhes</button>
+                        </div>
+                        <!-- Curso 5 -->
+                        <div class="course-card bg-white text-center shadow-lg p-4 rounded-lg mx-3">
+                            <h5 class="text-primary font-weight-bold">Arquitetura</h5>
+                            <p class="text-muted mb-3">Curso de Arquitetura e Urbanismo inovador.</p>
+                            <button class="btn btn-primary button-effect" onclick="window.location.href='cursoArquitetura.html'">Ver Detalhes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Controles do Carrossel -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
             </button>
         </div>
     </div>
 
-    <div class="d-flex">
-        <!-- Menu lateral oculto inicialmente -->
-        <nav id="sidebar" class="navbar-light vh-100 flex-column position-fixed" style="width: 250px; left: -250px;">
-            <div class="input-group mb-3 px-3">
-                <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="button-addon2">
-                <button class="btn btn-outline-dark" type="button" id="button-addon2">Go</button>
-            </div>
-            <ul class="nav flex-column px-3">
-                <li class="nav-item mb-2">
-                    <a class="nav-link text-dark d-flex justify-content-start align-items-center" href="paginaInicial.html">
-                        <img src="img/home.png" alt="Home Icon" class="mr-2" style="height: 24px;">
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li class="nav-item mb-2">
-                    <a class="nav-link text-dark d-flex justify-content-start align-items-center" href="PaginaCursos.html">
-                        <img src="img/cursos.png" alt="Cursos Icon" class="mr-2" style="height: 24px;">
-                        <span>Cursos</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-
-        <!-- Conteúdo principal -->
-        <div id="main-container" class="container-fluid">
-            <!-- Primeira Imagem (Seção Superior) -->
-            <section class="bg-light p-4 mt-3 rounded">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <img src="img/imagem1.png" alt="Imagem 1" class="img-fluid rounded">
-                    </div>
-                </div>
-            </section>
-
-            <!-- Segunda Imagem (Seção Inferior) -->
-            <section class="bg-warning p-4 mt-3 rounded">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <img src="img/imagem2.png" alt="Imagem 2" class="img-fluid rounded">
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
+    <!-- Barra inferior -->
+    <footer class="bg-white shadow-sm fixed-bottom p-3 text-center text-muted">
+        <p>© 2024 GESTOR DE HORAS COMPLEMENTARES | Todos os direitos reservados</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
-
-    <script>
-        document.getElementById('menu-btn').addEventListener('click', function () {
-            var sidebar = document.getElementById('sidebar');
-            var content = document.querySelector('#main-container');
-        
-            if (sidebar.style.left === "-250px") {
-                sidebar.style.left = "0";
-                content.style.marginLeft = "250px";
-            } else {
-                sidebar.style.left = "-250px";
-                content.style.marginLeft = "0";
-            }
-        });
-    </script>
 </body>
+
 </html>

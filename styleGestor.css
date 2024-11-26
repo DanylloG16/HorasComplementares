@@ -1,144 +1,130 @@
-/* Estilos para a página do gestor */
-
-/* Barra Superior */
-#gestor-titulo {
-    font-weight: bold;
-    font-size: 1.25rem;
+/* Estilos gerais */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7fb;
+    margin: 0;
+    padding: 0;
 }
 
-/* Barra lateral */
-#sidebar {
-    width: 250px;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    background-color: #f8f9fa;
-    padding-top: 20px;
-    transition: transform 0.3s ease;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+/* Barra superior roxa */
+.bg-purple {
+    background-color: #6f42c1 !important;
 }
 
-#sidebar.active {
-    transform: translateX(-250px);
-}
-
-.sidebar-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-}
-
-/* Conteúdo Principal */
-#main-container {
-    margin-left: 250px;
-    transition: margin-left 0.3s ease;
-    padding: 20px;
-}
-
-#main-container.active {
-    margin-left: 0;
-}
-
-/* Seção de certificados */
-.list-group-item {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 15px;
-    margin-bottom: 15px;
-    transition: background-color 0.2s ease;
-}
-
-.list-group-item:hover {
-    background-color: #f8f9fa;
-}
-
-.list-group-item .d-flex {
-    margin-bottom: 10px;
-}
-
-.list-group-item .d-flex span {
-    font-size: 1rem;
-}
-
-.list-group-item .btn-link {
-    font-size: 1rem;
-    color: #007bff;
-    text-decoration: none;
-}
-
-.list-group-item .btn-link:hover {
-    text-decoration: underline;
-}
-
-.list-group-item .text-muted {
-    font-size: 0.875rem;
-    color: #6c757d;
-}
-
-/* Barra superior verde */
-.bg-success {
-    background-color: #28a745 !important;
-}
-
-.notification-icon,
-.menu-icon {
+.notification-icon {
     width: 24px;
     height: 24px;
 }
 
-/* Estilos do botão do menu lateral */
-#menu-btn {
-    border: none;
-    background-color: transparent;
+/* Barra superior */
+#gestor-titulo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
-/* Input de pesquisa */
-.input-group {
-    width: 100%;
-}
-
-.input-group input {
-    border-radius: 0.25rem;
-    padding: 0.5rem;
-}
-
-.input-group button {
-    background-color: #f1f1f1;
-    border-radius: 0.25rem;
-    border: none;
-    padding: 0.5rem 1rem;
-}
-
-/* Estilo para a navegação */
-.nav-item a {
+/* Título */
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
     color: #333;
-    padding: 10px 15px;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.nav-item a:hover {
+/* Linha abaixo do título */
+.linha-titulo {
+    border-top: 2px solid #6f42c1;
+    width: 80px;
+    margin: 0 auto 30px;
+}
+
+/* Card de certificados */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+.card-body {
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 12px;
+    position: relative;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #6f42c1;
+    margin-bottom: 15px;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Botões */
+.btn-outline-primary, .btn-outline-danger {
+    border-radius: 8px;
+    font-weight: bold;
+    padding: 8px 16px;
+    width: 48%;
+}
+
+.d-flex {
+    gap: 12px;
+}
+
+.card-footer {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+}
+
+.transition-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.transition-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal */
+.modal-dialog {
+    max-width: 80%;
+}
+
+.modal-content {
+    border-radius: 12px;
+}
+
+.modal-header {
     background-color: #f8f9fa;
+    border-bottom: 1px solid #ddd;
 }
 
-.navbar-light .navbar-nav .nav-link {
-    color: #333;
+.modal-body {
+    padding: 0;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-    #sidebar {
-        width: 200px;
+    .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
     }
 
-    #main-container {
-        margin-left: 0;
-    }
-
-    #sidebar.active {
-        transform: translateX(-200px);
+    h1 {
+        font-size: 1.75rem;
     }
 }
